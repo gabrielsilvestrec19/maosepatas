@@ -4,20 +4,19 @@ import com.br.gurpo34.maosepatas.entity.Animal;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface AnimalRepository extends JpaRepository<Animal, Long> {
 
-    List<Animal> findByTutorId (Long tutorId);
+    List<Animal> findAllByOrderByDataCadastroDesc();
 
-    List<Animal> findByTutorNomeContainingIgnoreCase (String nomeTutor);
+    List<Animal> findTop5ByOrderByDataCadastroDesc();
 
-    boolean existsByTutorId(Long tutorId);
+    List<Animal> findByTutorIdOrderByDataCadastroDesc(Long tutorId);
 
-    List<Animal> findByNomeContainingIgnoreCase (String nome);
+    Optional<Animal> findByMicrochip(String microchip);
 
-    List<Animal> findByTutorCpf (String cpf);
+    boolean existsByMicrochip(String microchip);
 
-    boolean existsByNomeIgnoreCaseAndTutorId(String nome, Long tutorId);
-
-    List<Animal> findByEspecieIgnoreCase(String especie);
+    List<Animal> findByNomeContainingIgnoreCaseOrderByDataCadastroDesc(String nome);
 }
