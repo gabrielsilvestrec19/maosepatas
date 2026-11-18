@@ -2,13 +2,14 @@ package com.br.gurpo34.maosepatas.repository;
 
 import com.br.gurpo34.maosepatas.entity.Atendimento;
 import com.br.gurpo34.maosepatas.enums.TipoAtendimento;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-public interface AtendimentoRepository {
+public interface AtendimentoRepository extends JpaRepository<Atendimento,Long> {
     List<Atendimento> findTop5ByOrderByDataCadastroDesc();
 
     List<Atendimento> findTop5ByRealizadoTrueOrderByDataAtendimentoDesc();

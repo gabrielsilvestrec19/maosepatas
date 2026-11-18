@@ -14,3 +14,7 @@ spring:
         properties:
             hibernate:
                 format_sql: true
+    api:
+        security:
+            token:
+                secret: ${JWT_SECRET:maosepatas-chave-secreta-jwt-2026-grupo34-seguranca}
